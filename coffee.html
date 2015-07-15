@@ -52,12 +52,24 @@
 
     myImage.setAttribute('src', './static/coffee_beans.jpg');
 
-    var MakeCoffee = function() {
+    var showMug = function() {
         myImage.setAttribute('src', './static/coffee_mug.jpg');
     }
 
-    myImage.addEventListener('click', MakeCoffee);
-    
+    function showMachine() {
+        myImage.setAttribute('src', './static/coffee_machine.jpg');
+        setTimeout(ShowBeans, 500);
+    }
+
+    var ShowBeans = function() {
+        myImage.setAttribute('src', './static/coffee_beans.jpg')
+    }
+
+    myImage.addEventListener('click', showMachine);
+
+     
+
+
     // use this dictionary in further study step
 
     var prices = {
