@@ -49,6 +49,7 @@
 
     var myImage = document.getElementById('coffee_image');
     var myRevenueMessage = document.getElementById('revenue');
+    var drinksOrdered = [];
 
     myImage.setAttribute('src', './static/coffee_beans.jpg');
 
@@ -57,8 +58,10 @@
         setTimeout(showMug, 1000);
     }
 
-    var showMug = function() {
+    var showMug = function(drinkType) {
         myImage.setAttribute('src', './static/coffee_mug.jpg');
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered)
         setTimeout(showBeans, 1500);
     }
 
@@ -69,8 +72,6 @@
     myImage.addEventListener('click', showMachine);
 
      
-
-
     // use this dictionary in further study step
 
     var prices = {
