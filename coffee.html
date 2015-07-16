@@ -53,15 +53,15 @@
 
     myImage.setAttribute('src', './static/coffee_beans.jpg');
 
-    var showMachine = function() {
+    var showMachine = function(drinkType) {
         myImage.setAttribute('src', './static/coffee_machine.jpg');
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
         setTimeout(showMug, 1000);
     }
 
-    var showMug = function(drinkType) {
+    var showMug = function() {
         myImage.setAttribute('src', './static/coffee_mug.jpg');
-        drinksOrdered.push(drinkType);
-        console.log(drinksOrdered)
         setTimeout(showBeans, 1500);
     }
 
@@ -69,7 +69,7 @@
         myImage.setAttribute('src', './static/coffee_beans.jpg');
     }
 
-    myImage.addEventListener('click', showMachine);
+    myImage.addEventListener('click', function () {return showMachine("brew")});
 
      
     // use this dictionary in further study step
