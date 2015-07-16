@@ -50,6 +50,9 @@
     var myImage = document.getElementById('coffee_image');
     var myRevenueMessage = document.getElementById('revenue');
     var drinksOrdered = [];
+    var espresso = document.getElementById('espresso');
+    var latte = document.getElementById('latte');
+    var hotChocolate = document.getElementById('hot-chocolate');
 
     myImage.setAttribute('src', './static/coffee_beans.jpg');
 
@@ -57,6 +60,8 @@
         myImage.setAttribute('src', './static/coffee_machine.jpg');
         drinksOrdered.push(drinkType);
         console.log(drinksOrdered);
+        totalRevenue = revenue();
+        myRevenueMessage.innerText = totalRevenue;
         setTimeout(showMug, 1000);
     }
 
@@ -71,7 +76,12 @@
 
     myImage.addEventListener('click', function () {return showMachine("brew")});
 
-     
+    espresso.addEventListener('click', function () {return showMachine("espresso")});
+
+    latte.addEventListener('click', function () {return showMachine("latte")});
+
+    hotChocolate.addEventListener('click', function () {return showMachine("hot chocolate")});
+
     // use this dictionary in further study step
 
     var prices = {
@@ -80,6 +90,18 @@
         "latte": 4.15,
         "hot chocolate": 2.50
     };
+
+    // Tallies total cost of all drinks
+    var revenue = function () {
+        totalCost = 0;
+       for (i=0; i < drinksOrdered.length; i++) {
+        drinkPrice =prices[drinksOrdered[i]];
+        totalCost += drinkPrice;
+       };
+
+       return totalCost;
+
+    }
 
 
 </script>
